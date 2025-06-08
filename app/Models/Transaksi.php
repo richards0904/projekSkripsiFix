@@ -15,9 +15,13 @@ class Transaksi extends Model
      * @var string
      */
     protected $table = 'transaksi';
-    protected $primaryKey = 'order_id';
-    public $incrementing = false;
-    protected $keyType = 'string';
+
+    // If using a composite primary key ['order_id', 'item'] as defined in the migration,
+    // it's generally better not to specify a single $primaryKey here,
+    // as Eloquent's default behavior (e.g., for find()) is for single primary keys.
+    // protected $primaryKey = 'order_id'; // Comment out or remove
+    // public $incrementing = false; // Related to $primaryKey, comment out or remove if $primaryKey is removed
+    // protected $keyType = 'string'; // Related to $primaryKey, comment out or remove if $primaryKey is removed
     public $timestamps = false;
     protected $fillable = [
         'order_id', 'date', 'item',
